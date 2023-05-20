@@ -1,0 +1,23 @@
+-> The "RequestMapping" annotation value will have the path of the url and the method can be defined as GET/POST/PUT etc
+-> The "Value" annotation is used for retrieving the values from the application.properties file
+-> For each controller to run for the particular urls the class name should have the annotation "RestController"
+
+
+-> application-{environment}.properties
+    - With this you can create your own custom configurations where the values of host, username, password, port etc
+      can be changed for each and every different environments.
+    - To edit the configuration select the edit configuration and add new configuration with the package name and class
+      name and edit the active profile name with environment value like local, prod, dev etc.
+
+-> The annotation "RequestBody" is used to define the request body for the post requests
+-> The annotation "RequestParam" is used to read the request parameters from the url
+-> "PathVariable" annotation is used for the dynamic urls mapping("api/{id}/{value}", here the id and value are the path
+    variables)
+-> "ResponseEntity<Object>" return type is used for the server responses with desired JSON object and the HttpStatus as
+   well such as HttpStatus.OK, HttpStatus.CREATED etc.
+-> To add interceptors for the requests implement the interface "HandlerInterceptor".This interceptor can be used for
+    handling request before passing to the particular method (preHandle method) and also handling the response before
+    sending it to the client(postHandle method) and also handling after the completion of the request & response
+    (afterCompletion method) - refer to the java class NetworkInterceptor.java file
+-> To register an interceptor create a new java class and extend WebMvcConfigurerAdapter and override the method addInterceptors
+    and then add the interceptor
